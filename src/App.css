@@ -1,38 +1,176 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200;300;400&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  background-color: #f4f4f9ff;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: column; 
+}
+
+header {
+  background-color: #000000ff;
+  flex: 0 0 auto; }
+
+.flexNavBar {
+  width: 100%;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center; 
 }
 
-.App-link {
-  color: #61dafb;
+.logo {
+  width: 250px;
+  font-family: "Bebas Neue", cursive;
+  font-size: 25px;
+  color: #f4f4f9ff;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.logo a {
+  text-decoration: none;
+  color: #f4f4f9ff; 
+}
+
+.logoImagen {
+  width: 45px;
+  height: 45px;
+  margin: 5px; 
+}
+
+.navBar {
+  list-style-type: none;
+  text-decoration: none;
+  font-family: "Bebas Neue", cursive;
+  font-size: 25px;
+  color: #f4f4f9ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap; 
+}
+
+.navBar li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px; 
+}
+
+.navBar li button {
+  width: 120px;
+}
+
+.navBar li a {
+  list-style-type: none;
+  text-decoration: none;
+  font-family: "Bebas Neue", cursive;
+  font-size: 25px;
+  color: #f4f4f9ff;
+  white-space: nowrap;
+  text-align: center; 
+}
+
+.navBar li a:hover {
+  color: #b8dbd9ff;
+  font-size: 27px; 
+}
+
+.carritoNav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  width: 65px;
+  height: 36px;
+  background-color: #f4f4f9ff;
+  border-radius: 10px;
+}
+
+.carritoNav:hover {
+  background-color: #b8dbd9ff;
+}
+
+.carritoNav a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carritoNav a img {
+  height: 25px;
+  margin: 5px;
+  margin-right: 5px;
+}
+
+.cantidadCarrito {
+  color: #000000ff;
+  margin: 2px;
+  font-size: 23px;
+}
+
+
+main {
+  padding: 5px;
+  padding-bottom: 50px;
+  flex: 1 1 auto; 
+}
+
+h1 {
+  font-size: 30px;
+  font-family: "Bebas Neue", cursive;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+.tituloPrincipal {
+  color: #000000ff;
+}
+
+h2 {
+  font-family: "Bebas Neue", cursive;
+  color: #000000ff;
+  font-size: 23px; 
+}
+
+strong {
+  color: #e63e3e; 
+}
+
+
+
+
+@media (max-width: 576px) {
+  /* HEADER */
+
+  .navBar li {
+    width: 100%; 
   }
-  to {
-    transform: rotate(360deg);
+
+  .logo {
+    width: 100%;
+    border-style: solid;
+    border-top: #000000ff;
+    border-left: #000000ff;
+    border-right: #000000ff;
+    margin-bottom: 10px; 
   }
+
+  .buttons {
+    flex-direction: column;
+    padding: 0px;
+  }
+
 }
