@@ -1,11 +1,35 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import ItemList from './ItemList';
+import { useParams } from 'react-router-dom';
 
-const ItemListContainer = ({greeting}) => { // Este va a hacer el FETCH y se lo va a mandar a item list.
+const ItemListContainer = ({greeting}) => { 
+
+  const [productos, setProductos] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const {name} = useParams()
+
+  useEffect(()=> {
+
+    const obtenerProductos = async () => {
+      try {
+        const respuesta = await fetch("https://63bf5595e262345656e7882f.mockapi.io/Instrumentos");
+        const data = await respuesta.json();
+        const filtroCategoria = data.filter((element) => element.categoria === name)
+        name == undefined ? setProductos(data) : setProductos(filtroCategoria)
+      } finally {
+        setLoading(false);
+      }
+    }
+    obtenerProductos();
+
+  },[name]);
+
+
+
   return (
     <>
-      <div className="tituloPrincipal"><h1>{greeting}</h1></div>
-      <ItemList array="instrumentos"/>
+      {<>{loading ? "" : <div className="tituloPrincipal"><h1>{greeting}</h1></div>}</>}
+      {<>{loading ? <h1>Cargando...</h1> : <ItemList array={productos} />}</>}
     </>
   )
 }

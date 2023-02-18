@@ -1,13 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const Item = () => {  // Toma la información de ItemList e imprime las cards
+const Item = ({producto}) => {  
     return (
         <>
-            <section class="card" id="${element.id}">
-                <div class="cardImg"><img src="${element.imagen}" alt="${element.descripcion}" /></div>
-                <div class="cardText"><p>"$element.producto"</p></div>
-                <div class="cardPrice"><p>"$element.precio USD"</p></div>
-                <button class="cardCarrito" id="button-${element.id}"><p>Añadir al carrito</p></button>
+            <section className="card" id={producto.id}>
+                <div className="cardImg"><img src={producto.imagen} alt={producto.descripcion} /></div>
+                <div className="cardText"><p>{producto.producto}</p></div>
+                <div className="cardPrice"><p>{producto.precio} USD</p></div>
+                <Link className="link" to={`/product/${producto.id}`}><button className="cardCarrito" id={`button-${producto.id}`}><p>Añadir al carrito</p></button></Link>
             </section>
         </>
     )
