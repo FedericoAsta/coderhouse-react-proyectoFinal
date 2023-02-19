@@ -14,8 +14,9 @@ const ItemListContainer = ({greeting}) => {
       try {
         const respuesta = await fetch("https://63bf5595e262345656e7882f.mockapi.io/Instrumentos");
         const data = await respuesta.json();
-        const filtroCategoria = data.filter((element) => element.categoria === name)
-        name == undefined ? setProductos(data) : setProductos(filtroCategoria)
+        const filtroCategoria = data.filter((element) => element.categoria === name);
+        name == undefined ? setProductos(data) : setProductos(filtroCategoria);
+        setLoading(true);
       } finally {
         setLoading(false);
       }
@@ -25,11 +26,16 @@ const ItemListContainer = ({greeting}) => {
   },[name]);
 
 
-
   return (
     <>
-      {<>{loading ? "" : <div className="tituloPrincipal"><h1>{greeting}</h1></div>}</>}
-      {<>{loading ? <h1>Cargando...</h1> : <ItemList array={productos} />}</>}
+      {<>{loading ? <h1>Cargando...</h1> : 
+        <>
+          <div className="tituloPrincipal"><h1>{greeting}</h1></div>
+          <ItemList array={productos} />
+        </>
+        }
+        </>
+      }
     </>
   )
 }

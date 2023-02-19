@@ -4,6 +4,7 @@ import {BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Cart from './components/Cart';
 import ItemListContainer from './components/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer';
 
 
 function App() { 
@@ -23,8 +24,8 @@ function App() {
           />
         
           <Route 
-            path="/product/:id" 
-            element={<ItemListContainer greeting="Bienvenido a FV Guitars" />} 
+            path="/item/:id" 
+            element={<ItemDetailContainer />} 
           />
         
           <Route 

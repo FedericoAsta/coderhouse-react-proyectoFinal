@@ -574,11 +574,11 @@ strong {
   border-color: #000000ff; }
 
 
-/* Utiliza el mismo CSS que productos. */
-/* Utiliza el mismo CSS que 'index' */
 .product {
   width: 100%;
   display: grid;
+  margin: 20px;
+  margin-top: 80px;
   grid-template-columns: 10% 40% 40% 10%;
   grid-template-rows: 1fr;
   grid-template-areas: ". productPhoto productSpecs ."; }
@@ -592,18 +592,19 @@ strong {
 .productPhoto {
   margin: 10px;
   margin-right: 40px;
+  height: 380px;
   grid-area: productPhoto;
   display: flex;
   justify-content: right; }
 
 .productTitle {
   font-family: "Bebas Neue", cursive;
-  font-size: 30px;
+  font-size: 40px;
   margin-bottom: 10px; }
 
 .productSubtitle {
   font-family: "Oswald", sans-serif;
-  font-size: 20px;
+  font-size: 25px;
   width: 90%;
   color: #2f4550ff;
   margin-bottom: 10px; }
@@ -617,7 +618,7 @@ strong {
 .productPrice {
   font-family: "Bebas Neue", cursive;
   color: red;
-  font-size: 30px;
+  font-size: 32px;
   width: 100px; }
 
 .productButton {

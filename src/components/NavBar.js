@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom'
 
 const NavBar = ({array}) => {  
 
-    const arrayDeCategorias = array.map((element) => element.categoria);
-    const categoriasSinDuplicados = arrayDeCategorias.filter((item,index) => {
+    const arrayDeCategorias = array.map((element) => element.categoria); // Extrae solamente las categorías de los distintos objetos
+    const categoriasSinDuplicados = arrayDeCategorias.filter((item,index) => { // Elimina las categorías duplicadas
         return arrayDeCategorias.indexOf(item) === index;
     })
 
