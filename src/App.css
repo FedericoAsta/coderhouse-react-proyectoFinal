@@ -625,30 +625,59 @@ strong {
   font-family: "Bebas Neue", cursive;
   background-color: #b8dbd9ff;
   color: #000000ff;
-  font-size: 30px;
-  width: 100px;
+  font-size: 25px;
   height: 40px;
   border-radius: 5%;
   margin-left: 10px;
+  padding: 3px;
+  justify-content: center;
   text-align: center;
   text-decoration: none; }
-  .productButton:hover {
-    background-color: #e63e3e;
-    transform: scale(1.03); }
-  .productButton a {
-    text-decoration: none;
-    color: #000000ff; }
+.productButton:hover {
+  background-color: #e63e3e;
+  transform: scale(1.03); }
+.productButton a {
+  text-decoration: none;
+  color: #000000ff; }
+
+
+.productButtonSmall {
+  font-family: "Bebas Neue", cursive;
+  background-color: #406E8E;
+  color: #000000ff;
+  font-size: 25px;
+  height: 30px;
+  width: 25px;
+  border-radius: 100%;
+  margin-right: 10px;
+  margin-left: 10px;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none; }
+.productButtonSmall:hover {
+  background-color: #e63e3e;}
+
 
 .productSpecsTitle {
   font-family: "Bebas Neue", cursive;
   color: #000000ff;
   font-size: 25px; }
 
+
 .productSpecsBody {
   font-family: "Oswald", sans-serif;
   font-size: 18px;
   color: #2f4550ff;
   margin-bottom: 20px; }
+
+
+.itemCountContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+}
+
 
 footer {
   background-color: #000000ff;
