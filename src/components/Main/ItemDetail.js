@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import ItemCount from './ItemCount';
-import {CartContext} from '../context/CartContext';
+import {CartContext} from '../../context/CartContext';
 
 
 const ItemDetail = ({objeto}) => {  // Imprime en la pantalla el código del detalle del producto con el objeto que obtiene Item Detail Container

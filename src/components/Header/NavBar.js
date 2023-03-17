@@ -1,6 +1,6 @@
 import React from 'react'
-import logo from '../assets/img/pngwing.com.png';
-import CartWidget from './CartWidget';
+import logo from '../../assets/img/logoFV.png';
+import CartWidget from '../Cart/CartWidget';
 import { Link } from 'react-router-dom'
 
 

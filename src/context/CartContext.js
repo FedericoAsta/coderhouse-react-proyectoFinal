@@ -5,6 +5,7 @@ export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
     const [quantity, setQuantity] = useState(0);
+    const [total, setTotal] = useState(0);
 
     useEffect(() => {
         let cantidadActual = 0;
@@ -12,14 +13,21 @@ export const CartProvider = ({ children }) => {
         cantidadActual += product.quantity;
         });
         setQuantity(cantidadActual);
+        let totalCarrito = 0;
+        cart.forEach((product) => {
+        totalCarrito += (product.quantity * product.precio);
+        setTotal(totalCarrito);
+        });
     }, [cart]);
 
     const addItem = (product, productQuantity) => {
         if (isInCart(product.id)) {
-        //HACER LOGICA
+        const productIndex = cart.findIndex((element => element.id == product.id));
+        cart[productIndex].quantity += productQuantity;
+        setQuantity(quantity + productQuantity);
         } else {
         setCart([...cart, { ...product, quantity: productQuantity }]);
-        setQuantity(quantity + productQuantity)
+        setQuantity(quantity + productQuantity);
         }
     };
 
@@ -27,6 +35,7 @@ export const CartProvider = ({ children }) => {
         const product = cart.find((product) => product.id === id);
         setCart(cart.filter((product) => product.id !== id));
         setQuantity(quantity - product.quantity)
+        setTotal(total - (product.quantity * product.precio));
     };
 
     const isInCart = (id) => {
@@ -39,7 +48,7 @@ export const CartProvider = ({ children }) => {
     };
 
     return (
-        <CartContext.Provider value={{ cart, addItem, removeItem, clear, quantity }}>
+        <CartContext.Provider value={{ cart, addItem, removeItem, clear, quantity, total }}>
         {children}
         </CartContext.Provider>
     );

@@ -456,6 +456,25 @@ strong {
   transform: scale(1.03);
 }
 
+.cardCarritoButton2 {
+  font-family: "Bebas Neue", cursive;
+  background-color: rgb(49, 224, 128);
+  color: #000000ff;
+  font-size: 20px;
+  width: 150px;
+  height: 30px;
+  border-radius: 15px;
+  border-style: none;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardCarritoButton2:hover {
+  transform: scale(1.03);
+}
+
 .cardButton:hover {
   background-color: #e63e3e;
   transform: scale(1.03); }

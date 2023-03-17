@@ -1,10 +1,10 @@
 import './App.css';
 import React from 'react';
 import {BrowserRouter, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Cart from './components/Cart';
-import ItemListContainer from './components/ItemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer';
+import Header from './components/Header/Header';
+import Cart from './components/Cart/Cart';
+import ItemListContainer from './components/Main/ItemListContainer';
+import ItemDetailContainer from './components/Main/ItemDetailContainer';
 import { CartProvider } from './context/CartContext';
 
 
