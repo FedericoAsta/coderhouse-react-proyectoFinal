@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import ItemList from './ItemList';
 import { useParams } from 'react-router-dom';
+import { db } from '../../firebase/firebase';
+import { getDocs, collection, query, where, getDoc } from "firebase/firestore";
+
 
 const ItemListContainer = ({greeting}) => { 
 
@@ -10,18 +13,27 @@ const ItemListContainer = ({greeting}) => {
 
   useEffect(()=> {
 
-    const obtenerProductos = async () => {
-      try {
-        const respuesta = await fetch("https://63bf5595e262345656e7882f.mockapi.io/Instrumentos");
-        const data = await respuesta.json();
-        const filtroCategoria = data.filter((element) => element.categoria === name);
-        name == undefined ? setProductos(data) : setProductos(filtroCategoria);
-        setLoading(true);
-      } finally {
+    setLoading(true);
+
+    const productsCollection = collection(db, 'products');
+    const consulta = name
+    ? query(productsCollection, where("categoria", "==", name))
+    : productsCollection;
+
+    getDocs(consulta)
+      .then((data)=> {
+        const productosFiltrados = data.docs.map((element)=> {
+          return {
+            ...element.data(),
+            id: element.id
+          };
+        });
+        setProductos(productosFiltrados);
         setLoading(false);
-      }
-    }
-    obtenerProductos();
+      })
+      .catch(()=>{
+        console.error("error de conexión");
+      })
 
   },[name]);
 
@@ -41,3 +53,4 @@ const ItemListContainer = ({greeting}) => {
 }
 
 export default ItemListContainer;
+

@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import ItemCount from './ItemCount';
-import {CartContext} from '../../context/CartContext';
+import { CartContext } from '../../context/CartContext';
 
 
 const ItemDetail = ({objeto}) => {  // Imprime en la pantalla el código del detalle del producto con el objeto que obtiene Item Detail Container
@@ -26,7 +26,7 @@ const ItemDetail = ({objeto}) => {  // Imprime en la pantalla el código del det
                         {botonApretado ? (
                             <div className="productButton"><Link to={'/cart'}><p>Finalizar Compra</p></Link></div>
                         ) : (  
-                            <ItemCount onAdd={onAdd} />
+                            <ItemCount onAdd={onAdd} stock={objeto.stock} />
                         )}
                     </div>
                 </div>
@@ -37,3 +37,4 @@ const ItemDetail = ({objeto}) => {  // Imprime en la pantalla el código del det
 
 export default ItemDetail;
 
+// EN ITEMCOUNT AGREGAR COMO PROP stock={objeto.stock} PARA TENER EL STOCK ACTUALIZADO DE FIREBASE

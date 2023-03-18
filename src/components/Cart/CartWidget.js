@@ -6,12 +6,12 @@ import { CartContext } from '../../context/CartContext';
 
 const CartWidget = () => {
 
-  const { quantity } = useContext(CartContext);
+  const { quantity, total } = useContext(CartContext);
 
   return (
     <div className="carritoNav">
         <Link className="link" to={'/cart'}><img src={CarritoImg} alt="" /></Link>
-        <div className="cantidadCarrito">{quantity}</div>
+        {total > 0 && <div className="cantidadCarrito">{quantity}</div>}
     </div>
   )
 }

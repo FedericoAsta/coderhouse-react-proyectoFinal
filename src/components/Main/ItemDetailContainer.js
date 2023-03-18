@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import ItemDetail from './ItemDetail'
 import { useParams } from 'react-router-dom';
-import ItemListContainer from './ItemListContainer';
+import { db } from '../../firebase/firebase';
+import { doc, getDoc, collection } from "firebase/firestore";
 
-const ItemDetailContainer = () => {  // Hace un FETCH y se trae solo el objeto que quiero buscar
+const ItemDetailContainer = () => {  
 
   const [producto, setProducto] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -11,25 +12,26 @@ const ItemDetailContainer = () => {  // Hace un FETCH y se trae solo el objeto q
 
   useEffect(()=> {
 
-    const obtenerProductos = async () => {
-      try {
-        const respuesta = await fetch("https://63bf5595e262345656e7882f.mockapi.io/Instrumentos");
-        const data = await respuesta.json();
-        const filtroCategoria = data.filter((element) => element.id === id);
-        id == undefined ? setProducto(data) : setProducto(filtroCategoria);
-        setProducto(filtroCategoria)
-        setLoading(true);
-      } finally {
-        setLoading(false);
-      }
-    }
-    obtenerProductos();
+    setLoading(true);
 
+    const productsCollection = collection(db, 'products');
+    const productoElegido = doc(productsCollection,id)
+    getDoc(productoElegido)
+    .then((data)=>{
+      setProducto({
+        ...data.data(),
+        id: data.id
+      })
+    })
+    .finally(()=>{
+      setLoading(false);
+    })
+    
   },[id]);
 
     return (
         <>
-            {loading ? <h1>Cargando...</h1> : id == undefined ? producto.map((element,i)=> <ItemListContainer key={i} objeto={element} />) : producto.map((element,i)=> <ItemDetail key={i} objeto={element} />)}
+            {loading ? <h1>Cargando...</h1> : <ItemDetail key={id} objeto={producto} />}
         </>
     )
 }
