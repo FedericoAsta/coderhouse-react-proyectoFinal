@@ -12,6 +12,7 @@ const CartForm = () => {
   const [direccion, setDireccion] = useState("");
   const [mail, setMail] = useState("");
   const [fin, setFin] = useState(false);
+  const [orderID, setOrderID] = useState("");
 
   const handlerSubmit = (e) => {
     e.preventDefault();
@@ -31,6 +32,9 @@ const CartForm = () => {
         time: serverTimestamp(),
       }
     )
+    .then((order)=>{
+      setOrderID(order.id);
+    })
   }
 
   const stockReduction = () => {
@@ -73,7 +77,7 @@ const CartForm = () => {
       :
       <div className="contactInfo">
         <h1>Gracias por tu compra!</h1>
-        <p className="contactSubtitulo">En breve nos estaremos comunicando con vos. El ID de tu pedido es: </p>
+        <p className="contactSubtitulo">{`En breve nos estaremos comunicando con vos. El ID de tu pedido es: ${orderID}`}</p>
         <button className="cardCarritoButton2" onClick={handlerClear} >Volver al inicio</button>
       </div>
       }

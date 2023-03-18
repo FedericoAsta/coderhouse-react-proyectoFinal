@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from './NavBar';
+import { db } from '../../firebase/firebase';
+import { getDocs, collection, query, where, getDoc } from "firebase/firestore";
 
 const Header = () => {
 
@@ -7,18 +9,20 @@ const Header = () => {
 
   useEffect(()=> {
 
-    const obtenerProductos = async () => {
-      try {
-        const respuesta = await fetch("https://63bf5595e262345656e7882f.mockapi.io/Instrumentos");
-        const data = await respuesta.json();
-        setProductos(data)
-      } 
-      catch (error) {
-        console.log('Fetch Error:', error);
-      }
-    }
+    const productsCollection = collection(db, 'categories');
+    getDocs(productsCollection)
+    .then((data)=> {
+        const productosFiltrados = data.docs.map((element)=> {
+          return {
+            ...element.data()
+          };
+        });
+        setProductos(productosFiltrados);
+      })
+      .catch(()=>{
+        console.error("error de conexión");
+      })
 
-    obtenerProductos();
   },[]);
 
   return (
