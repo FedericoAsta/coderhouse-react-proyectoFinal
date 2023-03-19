@@ -551,6 +551,44 @@ strong {
   margin-left: 30px;
   margin-right: 30px; }
 
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  width: 600px;
+}
+
+.contactInfo2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  border-style: dashed;
+  border-color: #406E8E;
+  padding: 30px;
+  border-radius: 10px;
+  width: 600px;
+}
+
+.contactInfo2 p {
+  font-family: "Oswald", sans-serif;
+  font-size: 17px;
+  color: #2f4550ff;
+  margin: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.test {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 .contactInfo p {
   font-family: "Oswald", sans-serif;
   font-size: 17px;
@@ -587,6 +625,7 @@ strong {
 .contactForm form .buttonForm:hover {
   background-color: #e63e3e;
 }
+
 
 .map {
   border-style: solid;

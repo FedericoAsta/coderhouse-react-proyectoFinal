@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from './NavBar';
 import { db } from '../../firebase/firebase';
-import { getDocs, collection, query, where, getDoc } from "firebase/firestore";
+import { getDocs, collection } from "firebase/firestore";
 
 const Header = () => {
 

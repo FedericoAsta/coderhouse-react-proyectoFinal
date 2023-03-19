@@ -1,7 +1,8 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { CartContext } from "../../context/CartContext";
 import { collection, addDoc, serverTimestamp, doc, updateDoc } from "firebase/firestore";
 import { db } from '../../firebase/firebase';
+import { Link } from 'react-router-dom'
 
 
 const CartForm = () => {
@@ -75,10 +76,12 @@ const CartForm = () => {
         </div>
       </div>
       :
-      <div className="contactInfo">
-        <h1>Gracias por tu compra!</h1>
-        <p className="contactSubtitulo">{`En breve nos estaremos comunicando con vos. El ID de tu pedido es: ${orderID}`}</p>
-        <button className="cardCarritoButton2" onClick={handlerClear} >Volver al inicio</button>
+      <div className="test">
+        <div className="contactInfo2">
+          <h1>Gracias por tu compra!</h1>
+          <p>En breve nos estaremos comunicando con vos. El ID de tu pedido es:</p><p style={{color: 'rgb(49, 224, 128)'}}>{orderID}</p> 
+          <Link className="link" to={'/'}><button className="cardCarritoButton2" onClick={handlerClear} >Volver al inicio</button></Link>
+        </div>
       </div>
       }
     </>
