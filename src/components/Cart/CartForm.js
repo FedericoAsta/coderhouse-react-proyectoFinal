@@ -1,23 +1,25 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext } from 'react'
 import { CartContext } from "../../context/CartContext";
 import { collection, addDoc, serverTimestamp, doc, updateDoc } from "firebase/firestore";
 import { db } from '../../firebase/firebase';
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import swal from 'sweetalert';
 
 
 const CartForm = () => {
+
+  const navigate = useNavigate();
 
   const { clear, cart, total } = useContext(CartContext);
 
   const [nombre, setNombre] = useState("");
   const [direccion, setDireccion] = useState("");
   const [mail, setMail] = useState("");
-  const [fin, setFin] = useState(false);
-  const [orderID, setOrderID] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handlerSubmit = (e) => {
+    setLoading(true);
     e.preventDefault();
-    setFin(true);
 
     stockReduction();
 
@@ -34,7 +36,19 @@ const CartForm = () => {
       }
     )
     .then((order)=>{
-      setOrderID(order.id);
+      setLoading(false);
+      return swal({
+        title: 'Gracias por tu compra!',
+        text: `En breve nos estaremos comunicando con vos. El ID de tu pedido es: ${order.id}`,
+        icon: 'success',
+        closeOnClickOutside: false,
+        buttons: {
+          cancel: "Volver al inicio",
+        },
+      })
+    }).then(()=>{
+      clear()
+      navigate('/')
     })
   }
 
@@ -49,13 +63,12 @@ const CartForm = () => {
     })
   }
 
-  const handlerClear = () => {
-    clear();
-  }
+if (loading) {
+  return <h1>Cargando...</h1>
+}
 
   return (
     <>
-      {fin == false ?
       <div className="contactFlex">
         <div className="contactBox">
           <div className="contactInfo">
@@ -75,17 +88,8 @@ const CartForm = () => {
           </div>
         </div>
       </div>
-      :
-      <div className="test">
-        <div className="contactInfo2">
-          <h1>Gracias por tu compra!</h1>
-          <p>En breve nos estaremos comunicando con vos. El ID de tu pedido es:</p><p style={{color: 'rgb(49, 224, 128)'}}>{orderID}</p> 
-          <Link className="link" to={'/'}><button className="cardCarritoButton2" onClick={handlerClear} >Volver al inicio</button></Link>
-        </div>
-      </div>
-      }
     </>
   )
 }
 
-export default CartForm;
+export default CartForm; 

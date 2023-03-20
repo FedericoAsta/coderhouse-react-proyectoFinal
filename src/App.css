@@ -1068,3 +1068,33 @@ footer {
 .link {
   text-decoration: none;
 }
+
+.swal-title {
+  font-family: "Bebas Neue", cursive;
+  font-size: 25px;
+}
+
+.swal-text {
+  font-family: "Bebas Neue", cursive;
+  font-size: 25px;
+}
+
+.swal-button {
+  font-family: "Bebas Neue", cursive;
+  background-color: rgb(49, 224, 128);
+  color: #000000ff;
+  font-size: 20px;
+  width: 150px;
+  height: 30px;
+  border-radius: 15px;
+  border-style: none;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swal-button:hover {
+  transform: scale(1.05);
+  background-color: rgb(49, 224, 128) !important;
+}

@@ -36,5 +36,3 @@ const ItemDetail = ({objeto}) => {  // Imprime en la pantalla el código del det
 }
 
 export default ItemDetail;
-
-// EN ITEMCOUNT AGREGAR COMO PROP stock={objeto.stock} PARA TENER EL STOCK ACTUALIZADO DE FIREBASE

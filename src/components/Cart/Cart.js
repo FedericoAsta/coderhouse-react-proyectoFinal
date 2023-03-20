@@ -1,15 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import { Link } from 'react-router-dom'
-import CartForm from "./CartForm";
 
 const Cart = () => {
     const { cart, removeItem, total } = useContext(CartContext);
-    const [finalizar, setFinalizar] = useState(false);
-
-    const handlerForm = () => {
-        setFinalizar(true);
-    }
 
     return (
         <>
@@ -25,7 +19,7 @@ const Cart = () => {
                     </div>
                 </> :
                 <>
-                    <div className="tituloPrincipal"><h1>{!finalizar ? "Tu Compra:" : "Resumen de la compra"}</h1></div>
+                    <div className="tituloPrincipal"><h1>{"Tu Compra:"}</h1></div>
                     <div className="cardFlexCarrito">
                         {cart.map((product) => {
                             return (
@@ -34,7 +28,7 @@ const Cart = () => {
                                 <div className="cardPrice"><p id="carritoPrice">{product.quantity}</p></div>
                                 <div className="cardText"><p>X</p></div>
                                 <div className="cardPrice"><p id="carritoPrice">{product.precio} USD</p></div>
-                                {!finalizar && <button className="cardCarritoButton" id={`button-${product.id}`} onClick={()=>removeItem(product.id)} >Quitar</button>}
+                                <button className="cardCarritoButton" id={`button-${product.id}`} onClick={()=>removeItem(product.id)} >Quitar</button>
                             </section>
                             )
                         })}
@@ -44,11 +38,10 @@ const Cart = () => {
                             <section className="cardHorizontal" id="totalizador">
                                 <div className="cardText"><p id="totalCarritoText">TOTAL:</p></div>
                                 <div className="cardPrice"><p id="totalCarritoPrice">{total} USD</p></div>
-                                <button className="cardCarritoButton2" onClick={handlerForm} >Finalizar Compra</button>
+                                <Link className="link" to={'/checkout'}><button className="cardCarritoButton2" >Finalizar Compra</button></Link>
                             </section>
                         </div>
                     </div>
-                    {finalizar && <CartForm />}
                 </>
             }
         </>
