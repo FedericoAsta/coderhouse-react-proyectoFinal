@@ -4,7 +4,7 @@ import ItemCount from './ItemCount';
 import { CartContext } from '../../context/CartContext';
 
 
-const ItemDetail = ({objeto}) => {  // Imprime en la pantalla el código del detalle del producto con el objeto que obtiene Item Detail Container
+const ItemDetail = ({objeto}) => { 
 
     const [botonApretado, setBotonApretado] = useState(false);
     const { addItem } = useContext(CartContext);

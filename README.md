@@ -1,70 +1,20 @@
-# Getting Started with Create React App
+# FV Guitars
+## Proyecto Final CODERHOUSE | React JS
+### Alumno: Federico Asta
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Objetivo** :blush:
+* Este código corresponde al diseño de una aplicación web de un marketplace de instrumentos músicales llamado '**FV Guitars**', presentado como proyecto final para el curso de CODERHOUSE de React JS. Tiene como objetivo aprender a utilizar React JS y sus funcionalidades. 
 
-## Available Scripts
+**Funcionalidad** :gear:
+* Carrito Interactivo :shopping_cart:: Podés elegir en cualquier momento que producto agregar al carrito, que cantidad de productos querés y terminar tu compra desde la sección **carrito**.
+* Categorías dinámicas: El navbar levanta de forma dinámica una colección de categorías de **firebase** donde se pueden cargar las distintas categorías de productos. 
+* Filtros: Se puede filtrar los productos mediante filtros de cateogoría, haciendo uso de **react-router-DOM**.
+* Integración con Firebase: Las compras realizadas se guardan en una colección de firebase donde se puede ver el día, horario y detalle de la transacción; así como los datos del usuario que la realizó. 
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Tecnologías Aplicadas**  :rocket:
+* **React JS**
+* **Google Firebase** para el backend de la aplicación. 
+* Se hace uso de **react-router-DOM** para la navegación de la aplicación.
+* Se utiliza un **context** para las funcionalidades y lógica del carrito, y de esta manera tener accesibilidad a las funciones desde cualquier componente del proyecto.  
+* Se incorporan la librería de **SweetAlert** para las alertas dinámicas. 
+* Todo el **HTML** y **CSS** es de diseño propio y busca ser intuitivo y amigable. 
